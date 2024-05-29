@@ -10,7 +10,12 @@ if [ -z "${FIREBASE_PROJECT}" ]; then
     exit 1
 fi
 
-firebase deploy \
+if [ -z "${WORKING_DIRECTORY}" ]; then
+    echo "WORKING_DIRECTORY is missing"
+    exit 1
+fi
+
+cd ${WORKING_DIRECTORY} && firebase deploy \
     -m "${GITHUB_REF} (${GITHUB_SHA})" \
     --project ${FIREBASE_PROJECT} \
     --only hosting

@@ -27,6 +27,7 @@ jobs:
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         FIREBASE_PROJECT: name-of-the-project
+        WORKING_DIRECTORY: your-directory
 ```
 
 Deploy only when a tag starts with `v` is pushed:
